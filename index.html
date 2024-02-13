@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="554796c3191cdae8.css" crossorigin="" data-precedence="next" />
+
+</head>
+<body>
+    <div id="step1" class="flex flex-col items-center justify-center h-screen -mt-16">
+        <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" class="h-[200px]">
+        <h1 class="text-4xl my-4 text-center">Will you be my Valentine?</h1>
+        <div class="flex flex-wrap flex-col md:flex-row gap-4 items-center justify-center">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="font-size: 16px;" onclick="showMessage(true)">Yes</button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="updateCounter()">No</button>
+        </div>
+    </div>
+
+     <div id="step2" class="flex flex-col items-center justify-center h-screen -mt-16 hidden">
+       <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif">
+        <div class="text-4xl font-bold my-4 text-center">Ok yay!!!</div>
+        <a href="message.html" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="font-size: 16px;" >Message for You :)</a>
+    </div>
+
+  <script>
+    let e = 0;
+
+    function updateCounter() {
+        e++;
+        document.querySelector(".bg-red-500").innerText = e === 0 ? "No" : getNoMessage();
+        document.querySelector(".bg-green-500").style.fontSize = `${20 * e + 16}px`;
+    }
+
+    function showMessage(yesClicked) {
+        if (yesClicked) {
+            const stepOne = document.getElementById('step1');
+            const stepTwo = document.getElementById('step2');
+            stepOne.classList.add("hidden");
+            stepTwo.classList.remove("hidden");
+        }
+    }
+
+    function getNoMessage() {
+        let messages = ["No", "Are you sure?", "Really sure?", "Are you positive???", "Pookie please", "Just think about it", "If you say no, I'll be very sad", "I'll be very very sad", "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...", "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You're breaking my heart ;("];
+        return messages[e % messages.length];
+    }
+</script>
+
+</body>
+</html>
